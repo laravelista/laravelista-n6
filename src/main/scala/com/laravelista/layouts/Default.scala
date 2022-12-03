@@ -203,7 +203,7 @@ val footer =
         typo.routeLink(Route.PrivacyNotice),
         typo.outboundLink(
           "Source code",
-          URL("https://github.com/laravelista/website")
+          URL("https://github.com/laravelista/laravelista-n6")
         )
       ),
       button(
