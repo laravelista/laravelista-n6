@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "jsdom": "^20.0.0"
+  },
+  "scripts": {
+    "watch": "npx tailwindcss -i resources/css/index.css -o src/main/resources/css/index.css --watch",
+    "prod": "npx tailwindcss -i resources/css/index.css -o src/main/resources/css/index.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}

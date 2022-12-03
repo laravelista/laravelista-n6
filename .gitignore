@@ -1,0 +1,12 @@
+.bsp/
+.idea/
+.bloop/
+.metals/
+.vscode/
+.ammonite/
+target/
+node_modules/
+null/
+metals.sbt
+*.semanticdb
+.env
