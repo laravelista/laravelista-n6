@@ -41,7 +41,7 @@ For docker image:
 sbt Docker/publishLocal
 
 # Run local
-docker run -p 80:8080 --env-file .env --restart unless-stopped -d  website:0.1.0-SNAPSHOT
+docker run -p 80:8080 --env-file .env --restart unless-stopped -d ghcr.io/laravelista/laravelista-n6/website:0.1.0-SNAPSHOT
 
 # Build and publish to remote docker repository
 sbt Docker/publish
