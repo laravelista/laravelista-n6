@@ -21,6 +21,7 @@ import com.laravelista.pages.{
   privacyNoticePage,
   contactPage,
   messageReceivedPage,
+  notFoundPage,
   ContactMessage
 }
 import org.http4s.Charset.`UTF-8`
@@ -95,6 +96,8 @@ object Main extends IOApp {
               case Bad(errors) =>
                 UnprocessableEntity(contactPage(data, Some(errors)))
       }
+    case req @ GET -> _ =>
+      NotFound(notFoundPage)
   }
 
   def httpApp: HttpApp[IO] =

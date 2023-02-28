@@ -40,6 +40,7 @@ import org.http4s.Uri.Path
 import com.laravelista.{typography => typo}
 
 import java.net.URL
+import java.time.Year
 
 val logo =
   div(
@@ -80,23 +81,28 @@ def menuItem(
     text
   )
 
-def menu(activeRoute: Route) =
+def isActiveRoute(currentRoute: Option[Route], targetRoute: Route) =
+  currentRoute match
+    case Some(route) => route == targetRoute
+    case None        => false
+
+def menu(activeRoute: Option[Route]) =
   div(
     cls := "items-center hidden md:flex text-lg",
     menuItem(
       Route.Home.name,
       href = Route.Home.url.toString,
-      isActive = activeRoute == Route.Home
+      isActive = isActiveRoute(activeRoute, Route.Home)
     ),
     menuItem(
       Route.References.name,
       href = Route.References.url.toString,
-      isActive = activeRoute == Route.References
+      isActive = isActiveRoute(activeRoute, Route.References)
     ),
     menuItem(
       Route.Contact.name,
       href = Route.Contact.url.toString,
-      isActive = activeRoute == Route.Contact
+      isActive = isActiveRoute(activeRoute, Route.Contact)
     )
   )
 
@@ -116,7 +122,7 @@ val mobileNavbarToggle =
     dot
   )
 
-def navbar(activeRoute: Route) =
+def navbar(activeRoute: Option[Route]) =
   div(
     cls := "flex items-center justify-between shrink-0 h-14 w-full px-5 sm:px-10 py-0 mt-4 sm:mt-0 whitespace-nowrap",
     logo,
@@ -124,7 +130,7 @@ def navbar(activeRoute: Route) =
     mobileNavbarToggle
   )
 
-def mobileNavbar(activeRoute: Route) =
+def mobileNavbar(activeRoute: Option[Route]) =
   div(
     id := "mobile-navbar",
     cls := "overflow-auto py-6 px-5 sm:px-10 shrink-0 hidden md:hidden",
@@ -136,25 +142,25 @@ def mobileNavbar(activeRoute: Route) =
           Route.Home.name,
           isMobile = true,
           href = Route.Home.url.toString,
-          isActive = activeRoute == Route.Home
+          isActive = isActiveRoute(activeRoute, Route.Home)
         ),
         menuItem(
           Route.References.name,
           isMobile = true,
           href = Route.References.url.toString,
-          isActive = activeRoute == Route.References
+          isActive = isActiveRoute(activeRoute, Route.References)
         ),
         menuItem(
           Route.Contact.name,
           isMobile = true,
           href = Route.Contact.url.toString,
-          isActive = activeRoute == Route.Contact
+          isActive = isActiveRoute(activeRoute, Route.Contact)
         )
       )
     )
   )
 
-val footer =
+def footer =
   div(
     cls := "flex flex-col lg:flex-row justify-between py-5 px-5 sm:px-10 items-start lg:items-baseline",
     div(
@@ -166,7 +172,9 @@ val footer =
           URL("https://mariobasic.com"),
           includeRel = false
         ),
-        " 2011-2022. All rights reserved. Built with ",
+        " 2011-",
+        Year.now.getValue.toString,
+        ". All rights reserved. Built with ",
         typo.outboundLink("Scala", URL("https://scala-lang.org")),
         " and ",
         typo.outboundLink("Tailwind CSS", URL("https://tailwindcss.com")),
@@ -247,7 +255,7 @@ val footer =
 
 def defaultLayout(
     children: Seq[ConcreteHtmlTag[String]],
-    activeRoute: Route,
+    activeRoute: Option[Route],
     metaTitle: String,
     metaDescription: Option[String] = None
 ) =

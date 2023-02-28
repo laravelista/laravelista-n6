@@ -13,7 +13,7 @@ The entire website is made with Scala and Tailwind CSS, even the JavaScript code
 
 ## Quickstart
 
-```
+```bash
 npm install
 
 # to compile and run once
@@ -22,13 +22,17 @@ sbtn run
 # or to compile and run on source change
 sbtn ~reStart
 ```
+
 Other useful commands:
 
-```
+```bash
 # run this on work start (sbt server)
 sbtn
 
 sbtn reStatus
+
+# to format code
+scalafmt
 ```
 
 ## Deployment

@@ -411,7 +411,7 @@ val home = Seq(
 
 def homePage = defaultLayout(
   home,
-  activeRoute = Route.Home,
+  activeRoute = Some(Route.Home),
   metaTitle = heroTitle,
   metaDescription = Some(
     heroLead
