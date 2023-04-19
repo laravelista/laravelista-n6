@@ -51,7 +51,10 @@ docker run -p 80:8080 --env-file .env --restart unless-stopped -d ghcr.io/larave
 sbt Docker/publish
 
 # Run on production
-docker run -p 8080:8080 --env-file .env --restart unless-stopped -d --name laravelista  ghcr.io/laravelista/laravelista-n6/website:0.1.0-SNAPSHOT
+docker run -p 127.0.0.1:8080:8080 --env-file .env --restart unless-stopped -d --name laravelista  ghcr.io/laravelista/laravelista-n6/website:0.1.0-SNAPSHOT
+
+# Run on production (for real)
+docker run -p 127.0.0.1:8081:8080 --env-file .env --restart unless-stopped -d --name laravelista  ghcr.io/laravelista/laravelista-n6/website:0.3.0-SNAPSHOT
 ```
 
 When deploying to production:
