@@ -1,5 +1,6 @@
 package com.laravelista.layouts
 
+import org.http4s.dsl.io.Root
 import scalatags.Text.all.*
 import scalatags.Text.tags2.title
 import scalatags.Text.svgTags.{
@@ -257,7 +258,8 @@ def defaultLayout(
     children: Seq[ConcreteHtmlTag[String]],
     activeRoute: Option[Route],
     metaTitle: String,
-    metaDescription: Option[String] = None
+    metaDescription: Option[String] = None,
+    canonicalUrl: Option[Path] = None
 ) =
   doctype("html")(
     html(
@@ -278,7 +280,16 @@ def defaultLayout(
           name := "author",
           content := "Mario Bašić"
         ),
-        link(href := "https://laravelista.com", rel := "canonical"),
+        canonicalUrl match
+          case Some(path) =>
+            link(
+              href := s"https://laravelista.com${
+                  if path == Root then "" else path.toString
+                }",
+              rel := "canonical"
+            )
+          case None => ()
+        ,
         link(href := "/assets/css/index.css", rel := "stylesheet"),
         link(href := "/assets/img/favicon.ico", rel := "icon"),
         link(href := "/assets/img/favicon.png", rel := "shortcut icon"),

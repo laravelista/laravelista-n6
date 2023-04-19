@@ -415,5 +415,6 @@ def homePage = defaultLayout(
   metaTitle = heroTitle,
   metaDescription = Some(
     heroLead
-  )
+  ),
+  canonicalUrl = Some(Route.Home.url)
 )

@@ -22,5 +22,6 @@ def referencesPage =
   defaultLayout(
     referencesPageContent,
     activeRoute = Some(Route.References),
-    metaTitle = "Portfolio"
+    metaTitle = "Portfolio",
+    canonicalUrl = Some(Route.References.url)
   )

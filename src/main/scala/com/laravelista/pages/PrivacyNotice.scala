@@ -87,5 +87,6 @@ def privacyNoticePage =
   defaultLayout(
     privacyNoticePageContent,
     activeRoute = Some(Route.PrivacyNotice),
-    metaTitle = "Privacy notice"
+    metaTitle = "Privacy notice",
+    canonicalUrl = Some(Route.PrivacyNotice.url)
   )

@@ -23,6 +23,15 @@ val references =
 
   List(
     Reference(
+      "OPG Paić",
+      WebStandard,
+      Some(URL("https://opg-paic.hr")),
+      featured = true,
+      yearMade = 2023,
+      description =
+        "Website for a family run olive oil production farm. Built with a custom made PHP framework."
+    ),
+    Reference(
       "Kikolina",
       WebShop,
       Some(URL("https://kikolina.hr")),
