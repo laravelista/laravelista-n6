@@ -53,7 +53,6 @@ val references =
       "Quad Murter Kornati",
       WebStandard,
       Some(URL("https://quad-murterkornati.com")),
-      featured = true,
       yearMade = 2022,
       description =
         "Rent a Quad in Murter website made with vanilla PHP and Composer with no other dependencies."

@@ -1,4 +1,4 @@
-ThisBuild / version := "0.3.0-SNAPSHOT"
+ThisBuild / version := "0.3.1-SNAPSHOT"
 ThisBuild / scalaVersion := "3.2.0"
 ThisBuild / organization := "com.laravelista"
 
