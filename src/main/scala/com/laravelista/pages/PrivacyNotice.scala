@@ -24,13 +24,9 @@ val privacyNoticePageContent = Seq(
           typo.pageHeading("Forms"),
           typo.pageParagraph(
             Seq(
-              "The data provided through my contact form (name, e-mail address, subject, message, consent) will be stored in my inbox for an indefinite period of time for the purposes of future analysis and contact. If you want me to delete your email from my inbox send me an email at ",
-              typo.outboundLink(
-                text = Config.emailAddress,
-                url = URL(s"mailto:${Config.emailAddress}"),
-                includeRel = false
-              ),
-              "."
+              "The data provided through my contact form (name, e-mail address, subject, message, consent) will be stored in my inbox for an indefinite period of time for the purposes of future analysis and contact. If you want me to delete your email from my inbox send me a message using this ",
+              typo.routeLink(Route.Contact),
+              " form."
             )
           ),
           typo.pageHeading("Analytics"),
@@ -56,18 +52,6 @@ val privacyNoticePageContent = Seq(
             b("Mario Bašić"),
             ", ",
             appName,
-            br(),
-            "Markov Jose 1",
-            br(),
-            "Murter, HR 22243",
-            br(),
-            abbr(title := "E-mail", "E:"),
-            " ",
-            typo.outboundLink(
-              text = Config.emailAddress,
-              url = URL(s"mailto:${Config.emailAddress}"),
-              includeRel = false
-            ),
             br(),
             abbr(title := "Web", "W:"),
             " ",

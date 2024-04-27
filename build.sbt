@@ -13,7 +13,7 @@ val awsSdkVersion = "2.18.22"
 lazy val root = (project in file("."))
   .settings(
     name := "Website",
-    maintainer := "mario@laravelista.hr",
+    maintainer := "mario@laravelista.com",
     dockerExposedPorts := Seq(8080),
     dockerBaseImage := "eclipse-temurin:18",
     dockerRepository := Some("ghcr.io"),

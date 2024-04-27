@@ -12,5 +12,5 @@ object Config:
     secret = sys.env.getOrElse("AWS_SES_SECRET", "")
   )
 
-  val emailAddress = "mario@laravelista.hr"
-  val replyToAddress = "mario@laravelista.hr"
+  val emailAddress = "mario@laravelista.com"
+  val replyToAddress = "mario@laravelista.com"

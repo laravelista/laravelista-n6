@@ -45,11 +45,13 @@ import java.time.Year
 
 val logo =
   div(
-    cls := "w-52 shrink-0 ml-1",
+    cls := "ml-1 text-zinc-900 font-semibold dark:text-zinc-100 text-3xl",
     a(
+      cls := "flex gap-2 items-center",
       href := Route.Home.url.toString,
       aria.label := "Go to home page",
-      raw(svgs.laravelistaLogo)
+      raw(svgs.laravelistaLogo),
+      div("Laravelista")
     )
   )
 
@@ -60,14 +62,14 @@ def menuItem(
     isMobile: Boolean = false
 ) =
   val activeCls =
-    "py-4 px-7 font-extrabold text-zinc-700 dark:text-zinc-100"
+    "py-2 px-2 text-zinc-900 font-normal dark:text-zinc-100"
   val inactiveCls =
-    "py-4 px-7 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-100 font-medium duration-300"
+    "py-2 px-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-100 font-normal duration-300"
 
   val activeClsMobile =
-    "no-underline text-zinc-700 dark:text-zinc-100 p-2 font-extrabold duration-300 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
-  val inactiveClsMobile =
     "no-underline text-zinc-700 dark:text-zinc-100 p-2 duration-300 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
+  val inactiveClsMobile =
+    "no-underline text-zinc-600 dark:text-zinc-400 p-2 duration-300 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
 
   val itemClass =
     (isMobile, isActive) match
@@ -209,6 +211,16 @@ def footer =
       cls := "text-sm mt-2 lg:mt-0 flex items-center justify-between",
       div(
         cls := "mr-2 flex gap-2",
+        typo.outboundLink(
+          "Go Visit",
+          URL("https://govisit.hr"),
+          false
+        ),
+        typo.outboundLink(
+          "IzradaWeba",
+          URL("https://izradaweba.eu"),
+          false
+        ),
         typo.routeLink(Route.PrivacyNotice),
         typo.outboundLink(
           "Source code",

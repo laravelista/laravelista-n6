@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Nunito', ...defaultTheme.fontFamily.sans],
-        'serif': ['Nunito', ...defaultTheme.fontFamily.sans]
+        'sans': ['Sofia Sans', ...defaultTheme.fontFamily.sans],
+        // 'serif': ['Nunito', ...defaultTheme.fontFamily.serif]
       },
       colors: {
         'border-color': 'rgb(255 255 255 / 35%)',

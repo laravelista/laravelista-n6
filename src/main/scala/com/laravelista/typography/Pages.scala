@@ -10,7 +10,7 @@ def page(children: Seq[ConcreteHtmlTag[String]]) =
 
 def pageBox(children: Seq[ConcreteHtmlTag[String]]) =
   div(
-    cls := "box box-lg relative w-full p-12 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-100 mb-10 mt-10 rounded-lg hover:before:opacity-100 duration-300",
+    cls := "box relative w-full p-12 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-100 mb-10 mt-10 rounded-lg hover:before:opacity-100 duration-300",
     children
   )
 

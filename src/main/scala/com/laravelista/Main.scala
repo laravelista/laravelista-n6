@@ -106,7 +106,7 @@ object Main extends IOApp {
       "/assets" -> resourceServiceBuilder[IO]("").toRoutes
     ).orNotFound
 
-  def finalHttpApp: HttpApp[IO] = Logger.httpApp(true, true)(httpApp)
+  def finalHttpApp: HttpApp[IO] = Logger.httpApp(false, false)(httpApp)
 
   def run(args: List[String]): IO[ExitCode] =
     EmberServerBuilder

@@ -137,7 +137,7 @@ def contactPageContent(
                 `type` := "text",
                 name := "full_name",
                 placeholder := "Enter your full name",
-                cls := "bg-white/30 dark:bg-black/20 rounded-sm mt-1 w-full block p-2",
+                cls := "bg-white/30 dark:bg-black/20 rounded-lg mt-1 w-full block p-2",
                 autocomplete := "name",
                 old("full_name", oldData)
               ),
@@ -156,7 +156,7 @@ def contactPageContent(
                 `type` := "text",
                 name := "first_name",
                 placeholder := "Enter your first name",
-                cls := "bg-white/30 dark:bg-black/20 rounded-sm mt-1 w-full block p-2",
+                cls := "bg-white/30 dark:bg-black/20 rounded-lg mt-1 w-full block p-2",
                 autocomplete := "off"
               )
             ),
@@ -174,7 +174,7 @@ def contactPageContent(
                 name := "email_address",
                 autocomplete := "email",
                 placeholder := "Enter your email address",
-                cls := "bg-white/30 dark:bg-black/20 rounded-sm mt-1 w-full block p-2",
+                cls := "bg-white/30 dark:bg-black/20 rounded-lg mt-1 w-full block p-2",
                 old("email_address", oldData)
               ),
               displayError("email_address", errors)
@@ -190,7 +190,7 @@ def contactPageContent(
               select(
                 id := "subject",
                 name := "subject",
-                cls := "bg-white/30 dark:bg-black/20 text-black dark:text-white rounded-sm mt-1 w-full block p-2",
+                cls := "bg-white/30 dark:bg-black/20 text-black dark:text-white rounded-lg mt-1 w-full block p-2",
                 option(
                   value := "",
                   "Choose message subject",
@@ -219,7 +219,7 @@ def contactPageContent(
                 id := "message",
                 name := "message",
                 placeholder := "Enter your message",
-                cls := "bg-white/30 dark:bg-black/20 rounded-sm mt-1 w-full block p-2 h-52",
+                cls := "bg-white/30 dark:bg-black/20 rounded-lg mt-1 w-full block p-2 h-52",
                 if oldData.values.contains("message") then
                   oldData.getFirstOrElse("message", "")
                 else ""
