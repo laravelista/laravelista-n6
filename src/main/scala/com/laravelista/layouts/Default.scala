@@ -45,13 +45,16 @@ import java.time.Year
 
 val logo =
   div(
-    cls := "ml-1 text-zinc-900 font-semibold dark:text-zinc-100 text-3xl",
+    cls := "ml-1",
     a(
       cls := "flex gap-2 items-center",
       href := Route.Home.url.toString,
       aria.label := "Go to home page",
       raw(svgs.laravelistaLogo),
-      div("Laravelista")
+      div(
+        cls := "text-theme-color font-bold dark:text-zinc-100 text-3xl",
+        "Laravelista"
+      )
     )
   )
 
@@ -64,12 +67,12 @@ def menuItem(
   val activeCls =
     "py-2 px-2 text-zinc-900 font-normal dark:text-zinc-100"
   val inactiveCls =
-    "py-2 px-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-100 font-normal duration-300"
+    "py-2 px-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-100 font-normal duration-100"
 
   val activeClsMobile =
-    "no-underline text-zinc-700 dark:text-zinc-100 p-2 duration-300 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
+    "no-underline text-zinc-700 dark:text-zinc-100 p-2 duration-100 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
   val inactiveClsMobile =
-    "no-underline text-zinc-600 dark:text-zinc-400 p-2 duration-300 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
+    "no-underline text-zinc-600 dark:text-zinc-400 p-2 duration-100 rounded-lg hover:bg-hover-menu-bg dark:hover:bg-dark-hover-menu-bg"
 
   val itemClass =
     (isMobile, isActive) match
@@ -88,6 +91,44 @@ def isActiveRoute(currentRoute: Option[Route], targetRoute: Route) =
   currentRoute match
     case Some(route) => route == targetRoute
     case None        => false
+
+def themeSwitchButton =
+  button(
+    `type` := "button",
+    id := "theme-switch",
+    cls := "p-2 rounded-full flex focus-visible:outline-none",
+    aria.label := "Switch theme",
+    svg(
+      id := "theme-dark",
+      fill := "currentColor",
+      cls := "hidden w-6 shrink-0 dark:fill-dark-light-svg dark:stroke-dark-light-svg duration-500",
+      viewBox := "0 0 512 512",
+      xmlns := "http://www.w3.org/2000/svg",
+      path(
+        d := "M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"
+      )
+    ),
+    svg(
+      id := "theme-light",
+      fill := "currentColor",
+      cls := "hidden w-6 shrink-0 dark:fill-dark-light-svg dark:stroke-dark-light-svg duration-500",
+      viewBox := "0 0 512 512",
+      xmlns := "http://www.w3.org/2000/svg",
+      path(
+        d := "M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"
+      )
+    ),
+    svg(
+      id := "theme-automatic",
+      fill := "currentColor",
+      cls := "w-6 shrink-0 dark:fill-dark-light-svg dark:stroke-dark-light-svg duration-500",
+      viewBox := "0 0 512 512",
+      xmlns := "http://www.w3.org/2000/svg",
+      path(
+        d := "M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64V448C362 448 448 362 448 256C448 149.1 362 64 256 64z"
+      )
+    )
+  )
 
 def menu(activeRoute: Option[Route]) =
   div(
@@ -129,8 +170,12 @@ def navbar(activeRoute: Option[Route]) =
   div(
     cls := "flex items-center justify-between shrink-0 h-14 w-full px-5 sm:px-10 py-0 mt-4 sm:mt-0 whitespace-nowrap",
     logo,
-    menu(activeRoute),
-    mobileNavbarToggle
+    div(
+      cls := "flex items-center",
+      menu(activeRoute),
+      themeSwitchButton,
+      mobileNavbarToggle
+    )
   )
 
 def mobileNavbar(activeRoute: Option[Route]) =
@@ -225,42 +270,6 @@ def footer =
         typo.outboundLink(
           "Source code",
           URL("https://github.com/laravelista/laravelista-n6")
-        )
-      ),
-      button(
-        `type` := "button",
-        id := "theme-switch",
-        cls := "p-2 rounded-full flex focus-visible:outline-none",
-        aria.label := "Switch theme",
-        svg(
-          id := "theme-dark",
-          fill := "currentColor",
-          cls := "hidden w-6 shrink-0 dark:fill-dark-light-svg dark:stroke-dark-light-svg duration-500",
-          viewBox := "0 0 512 512",
-          xmlns := "http://www.w3.org/2000/svg",
-          path(
-            d := "M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"
-          )
-        ),
-        svg(
-          id := "theme-light",
-          fill := "currentColor",
-          cls := "hidden w-6 shrink-0 dark:fill-dark-light-svg dark:stroke-dark-light-svg duration-500",
-          viewBox := "0 0 512 512",
-          xmlns := "http://www.w3.org/2000/svg",
-          path(
-            d := "M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"
-          )
-        ),
-        svg(
-          id := "theme-automatic",
-          fill := "currentColor",
-          cls := "w-6 shrink-0 dark:fill-dark-light-svg dark:stroke-dark-light-svg duration-500",
-          viewBox := "0 0 512 512",
-          xmlns := "http://www.w3.org/2000/svg",
-          path(
-            d := "M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64V448C362 448 448 362 448 256C448 149.1 362 64 256 64z"
-          )
         )
       )
     )

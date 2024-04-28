@@ -76,7 +76,7 @@ def renderReferences(
       cls := "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full mt-10 gap-12",
       for reference <- references
       yield div(
-        cls := "p-12 z-10 bg-zinc-100 dark:bg-zinc-900 box relative hover:scale-[1.01] duration-300 rounded-lg hover:before:opacity-100",
+        cls := "p-12 z-10 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-lg relative hover:scale-[1.01] duration-100 rounded-lg",
         div(
           cls := "flex",
           reference.tag.getSvg,

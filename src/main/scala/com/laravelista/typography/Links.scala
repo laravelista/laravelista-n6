@@ -21,7 +21,7 @@ import java.net.URL
   */
 def outboundLink(text: String, url: URL, includeRel: Boolean = true) =
   a(
-    cls := "underline hover:no-underline dark:hover:text-zinc-200 hover:text-zinc-700 duration-300",
+    cls := "underline hover:no-underline dark:hover:text-zinc-200 hover:text-zinc-700 duration-100",
     href := url.toString,
     if includeRel then rel := "nofollow noopener"
     else "",
@@ -31,7 +31,7 @@ def outboundLink(text: String, url: URL, includeRel: Boolean = true) =
 
 def link(text: String, path: Path) =
   a(
-    cls := "underline hover:no-underline dark:hover:text-zinc-200 hover:text-zinc-700 duration-300",
+    cls := "underline hover:no-underline dark:hover:text-zinc-200 hover:text-zinc-700 duration-100",
     href := path.toString,
     text
   )
@@ -41,7 +41,7 @@ def routeLink(route: Route) =
 
 def outboundIcon(icon: String, url: URL, iconTitle: String) =
   a(
-    cls := "dark:hover:fill-zinc-200 hover:fill-zinc-700 duration-300",
+    cls := "dark:hover:fill-zinc-200 hover:fill-zinc-700 duration-100",
     href := url.toString,
     rel := "nofollow noopener",
     target := "_blank",

@@ -3,30 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.box::before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-  filter: blur(2px);
-  opacity: 0.7;
-  transition: opacity 0.1s;
-  border-radius: inherit;
-}
-
-.box::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit;
-  border-radius: inherit;
-}

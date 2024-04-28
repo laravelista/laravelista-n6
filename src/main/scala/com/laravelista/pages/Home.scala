@@ -18,7 +18,7 @@ enum CtaButtonSize(val classes: String):
   case Large extends CtaButtonSize("py-4 px-7")
 
 val ctaButtonClasses =
-  "font-medium bg-black dark:bg-white text-zinc-100 dark:text-zinc-900 rounded-lg inline-block hover:bg-zinc-700 dark:hover:bg-zinc-200 duration-300"
+  "shadow-lg font-medium bg-black dark:bg-white text-zinc-100 dark:text-zinc-900 rounded-lg inline-block hover:bg-zinc-700 dark:hover:bg-zinc-200 duration-100"
 
 def ctaButton(
     text: String,
@@ -42,7 +42,7 @@ val heroLead =
 
 val heroSection =
   div(
-    cls := "box relative w-full p-12 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-100 mb-10 mt-10 rounded-lg hover:before:opacity-100 duration-300",
+    cls := "border border-zinc-200 dark:border-zinc-800 shadow-lg relative w-full p-12 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-100 mb-10 mt-10 rounded-lg duration-100",
     h1(
       cls := "lg:text-8xl md:text-6xl text-4xl mb-6 font-medium",
       heroTitle
@@ -91,7 +91,7 @@ val bookSection =
     div(
       cls := "md:w-1/2 flex items-center mt-10 lg:mt-0",
       figure(
-        cls := "box relative w-full p-12 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-100 mb-10 mt-10 rounded-lg hover:before:opacity-100 hover:scale-[1.01] duration-300",
+        cls := "border border-zinc-200 dark:border-zinc-800 shadow-lg relative w-full p-12 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-100 mb-10 mt-10 rounded-lg hover:scale-[1.01] duration-100",
         h3(cls := "text-xl mb-4", "Reader testimonial"),
         p(cls := "uppercase font-light mb-2", "Clear and easy"),
         blockquote(
@@ -121,7 +121,7 @@ def bwCard(
     )
 
   div(
-    cls := "w-full bg-zinc-100 dark:bg-zinc-900 rounded-lg box relative px-6 py-4 z-10 hover:before:opacity-100 duration-300 hover:scale-[1.01]",
+    cls := "w-full bg-zinc-100 dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-lg relative px-6 py-4 z-10 duration-100 hover:scale-[1.01]",
     link match
       case Some(url) =>
         a(
@@ -354,7 +354,7 @@ def itemSection(title: String, items: List[Item]) =
       cls := "grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full mt-10",
       for item <- items
       yield div(
-        cls := "box relative p-12 bg-zinc-100 dark:bg-zinc-900 rounded-lg hover:scale-[1.01] duration-300 hover:before:opacity-100",
+        cls := "border border-zinc-200 dark:border-zinc-800 shadow-lg relative p-12 bg-zinc-100 dark:bg-zinc-900 rounded-lg hover:scale-[1.01] duration-100",
         div(
           cls := "flex",
           item.tag.getSvg,
