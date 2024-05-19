@@ -12,6 +12,7 @@ import com.laravelista.typography as typo
 import scalatags.Text.TypedTag
 
 import java.net.URL
+import java.net.URI
 
 enum CtaButtonSize(val classes: String):
   case Medium extends CtaButtonSize("py-2 px-4")
@@ -84,7 +85,7 @@ val bookSection =
         ),
         typo.outboundLink(
           "Buy on Leanpub",
-          URL("https://leanpub.com/laravelista-collection")
+          URI.create("https://leanpub.com/laravelista-collection").toURL()
         )
       )
     ),
@@ -158,7 +159,7 @@ val sponsorwareSection =
           cls := "my-2",
           typo.outboundLink(
             "Backers",
-            URL("https://mariobasic.com/backers"),
+            URI.create("https://mariobasic.com/backers").toURL(),
             includeRel = false
           )
         )
@@ -171,7 +172,10 @@ val sponsorwareSection =
           targetBlank = true,
           includeRel = true
         ),
-        typo.outboundLink("Explore", URL("https://packages.laravelista.com"))
+        typo.outboundLink(
+          "Explore",
+          URI.create("https://packages.laravelista.com").toURL()
+        )
       )
     ),
     div(
@@ -215,7 +219,7 @@ val opensourceSection =
           cls := "my-2",
           typo.outboundLink(
             "Code of Conduct",
-            URL("https://mariobasic.com/code-of-conduct"),
+            URI.create("https://mariobasic.com/code-of-conduct").toURL(),
             includeRel = false
           )
         ),
@@ -223,7 +227,7 @@ val opensourceSection =
           cls := "my-2",
           typo.outboundLink(
             "Contributing",
-            URL("https://mariobasic.com/contributing"),
+            URI.create("https://mariobasic.com/contributing").toURL(),
             includeRel = false
           )
         )
@@ -246,25 +250,25 @@ val opensourceSection =
           "laravelista/Ekko",
           "PHP package for marking navigation items active.",
           svgs.phpLogo,
-          Some(URL("https://github.com/laravelista/Ekko"))
+          Some(URI.create("https://github.com/laravelista/Ekko").toURL())
         ),
         bwCard(
           "laravelista/comments",
           "Native comments for your Laravel application.",
           svgs.laravelLogo,
-          Some(URL("https://github.com/laravelista/comments"))
+          Some(URI.create("https://github.com/laravelista/comments").toURL())
         ),
         bwCard(
           "laravelista/loki",
           "Laravel localization almost done the right way.",
           svgs.laravelLogo,
-          Some(URL("https://github.com/laravelista/loki"))
+          Some(URI.create("https://github.com/laravelista/loki").toURL())
         ),
         bwCard(
           "laravelista/picasso",
           "Laravel Image Management and Optimization Package.",
           svgs.laravelLogo,
-          Some(URL("https://github.com/laravelista/picasso"))
+          Some(URI.create("https://github.com/laravelista/picasso").toURL())
         )
       )
     )
@@ -317,7 +321,10 @@ val products =
       descriptionHtml = Some(
         span(
           "In accordance with the Croatian law and in cooperation with the ",
-          typo.outboundLink("Paušalko", URL("https://pausalko.com")),
+          typo.outboundLink(
+            "Paušalko",
+            URI.create("https://pausalko.com").toURL()
+          ),
           " service for small business invoice handling, here is your own online store fully adapted to your needs."
         )
       ),

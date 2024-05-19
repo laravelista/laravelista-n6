@@ -40,7 +40,7 @@ scalafmt
 
 For docker image:
 
-```
+```bash
 # Build and publish to local docker
 sbt Docker/publishLocal
 

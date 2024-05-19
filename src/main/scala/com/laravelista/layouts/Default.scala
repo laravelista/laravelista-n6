@@ -41,6 +41,7 @@ import org.http4s.Uri.Path
 import com.laravelista.{typography => typo}
 
 import java.net.URL
+import java.net.URI
 import java.time.Year
 
 val logo =
@@ -217,37 +218,41 @@ def footer =
         "©️  ",
         typo.outboundLink(
           "Mario Bašić",
-          URL("https://mariobasic.com"),
+          URI.create("https://mariobasic.com").toURL(),
           includeRel = false
         ),
         " 2011-",
         Year.now.getValue.toString,
         ". All rights reserved. Built with ",
-        typo.outboundLink("Scala", URL("https://scala-lang.org")),
+        typo
+          .outboundLink("Scala", URI.create("https://scala-lang.org").toURL()),
         " and ",
-        typo.outboundLink("Tailwind CSS", URL("https://tailwindcss.com")),
+        typo.outboundLink(
+          "Tailwind CSS",
+          URI.create("https://tailwindcss.com").toURL()
+        ),
         "."
       ),
       div(
         cls := "flex mt-3 ml-0.5",
         typo.outboundIcon(
           svgs.patreonLogo,
-          URL("https://patreon.com/laravelista"),
+          URI.create("https://patreon.com/laravelista").toURL(),
           "Patreon"
         ),
         typo.outboundIcon(
           svgs.paypalLogo,
-          URL("https://www.paypal.me/laravelista"),
+          URI.create("https://www.paypal.me/laravelista").toURL(),
           "PayPal"
         ),
         typo.outboundIcon(
           svgs.digitaloceanLogo,
-          URL("https://m.do.co/c/1bae3920f1e0"),
+          URI.create("https://m.do.co/c/1bae3920f1e0").toURL(),
           "DigitalOcean"
         ),
         typo.outboundIcon(
           svgs.githubLogo,
-          URL("https://github.com/laravelista"),
+          URI.create("https://github.com/laravelista").toURL(),
           "GitHub"
         )
       )
@@ -258,18 +263,18 @@ def footer =
         cls := "mr-2 flex gap-2",
         typo.outboundLink(
           "Go Visit",
-          URL("https://govisit.hr"),
+          URI.create("https://govisit.hr").toURL(),
           false
         ),
         typo.outboundLink(
           "IzradaWeba",
-          URL("https://izradaweba.eu"),
+          URI.create("https://izradaweba.eu").toURL(),
           false
         ),
         typo.routeLink(Route.PrivacyNotice),
         typo.outboundLink(
           "Source code",
-          URL("https://github.com/laravelista/laravelista-n6")
+          URI.create("https://github.com/laravelista/laravelista-n6").toURL()
         )
       )
     )

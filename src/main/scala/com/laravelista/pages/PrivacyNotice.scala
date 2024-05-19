@@ -8,6 +8,7 @@ import com.laravelista.partials.renderReferences
 import com.laravelista.typography as typo
 
 import java.net.URL
+import java.net.URI
 
 val privacyNoticePageContent = Seq(
   typo.page(
@@ -34,12 +35,14 @@ val privacyNoticePageContent = Seq(
             Seq(
               "I use a self-hosted version of ",
               typo.outboundLink(
-                url = URL("https://plausible.io/"),
+                url = URI.create("https://plausible.io/").toURL(),
                 text = "Plausible"
               ),
               " for the purpose of collecting and analyzing website visit frequency. It is an open source web analytics software, built in the EU, with no cookies, no tracking and no personal data collection. ",
               typo.outboundLink(
-                url = URL("https://plausible.laravelista.com/laravelista.com"),
+                url = URI
+                  .create("https://plausible.laravelista.com/laravelista.com")
+                  .toURL(),
                 text = "Stats are open to the public."
               )
             )
@@ -56,7 +59,7 @@ val privacyNoticePageContent = Seq(
             abbr(title := "Web", "W:"),
             " ",
             typo.outboundLink(
-              url = URL("https://mariobasic.com"),
+              url = URI.create("https://mariobasic.com").toURL(),
               text = "mariobasic.com",
               includeRel = false
             )

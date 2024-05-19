@@ -1,6 +1,7 @@
 package com.laravelista
 
 import java.net.URL
+import java.net.URI
 import java.net.Proxy
 
 case class Reference(
@@ -16,7 +17,7 @@ object Reference:
   def getUrl(reference: Reference): URL =
     reference.url match
       case Some(url) => url
-      case None      => URL("#")
+      case None      => URI.create("#").toURL()
 
 val references =
   import Tag.*
@@ -25,7 +26,7 @@ val references =
     Reference(
       "OPG Paić",
       WebStandard,
-      Some(URL("https://opg-paic.hr")),
+      Some(URI.create("https://opg-paic.hr").toURL()),
       featured = true,
       yearMade = 2023,
       description =
@@ -34,7 +35,7 @@ val references =
     Reference(
       "Kikolina",
       WebShop,
-      Some(URL("https://kikolina.hr")),
+      Some(URI.create("https://kikolina.hr").toURL()),
       featured = true,
       yearMade = 2022,
       description =
@@ -43,7 +44,7 @@ val references =
     Reference(
       "Bonaventura",
       BookingSystem,
-      Some(URL("https://bonaventura.vip")),
+      Some(URI.create("https://bonaventura.vip").toURL()),
       featured = true,
       yearMade = 2022,
       description =
@@ -52,7 +53,7 @@ val references =
     Reference(
       "Quad Murter Kornati",
       WebStandard,
-      Some(URL("https://quad-murterkornati.com")),
+      Some(URI.create("https://quad-murterkornati.com").toURL()),
       yearMade = 2022,
       description =
         "Rent a Quad in Murter website made with vanilla PHP and Composer with no other dependencies."
@@ -60,7 +61,7 @@ val references =
     Reference(
       "Jet Ski Murter Kornati",
       WebStandard,
-      Some(URL("https://jetski-murterkornati.com")),
+      Some(URI.create("https://jetski-murterkornati.com").toURL()),
       yearMade = 2021,
       description =
         "Modern Rent a Jet Ski in Murter website made with vanilla PHP and Composer with no other dependencies."
@@ -68,7 +69,7 @@ val references =
     Reference(
       "Meling Gradnja",
       CustomSoftware,
-      Some(URL("https://meling-gradnja.hr/")),
+      Some(URI.create("https://meling-gradnja.hr/").toURL()),
       yearMade = 2021,
       description =
         "Website for a construction company made with Laravel. Uses self made sponsorware laravel packages."
@@ -76,7 +77,7 @@ val references =
     Reference(
       "Stay in Adriatic",
       CustomSoftware,
-      Some(URL("https://stayinadriatic.com")),
+      Some(URI.create("https://stayinadriatic.com").toURL()),
       featured = true,
       yearMade = 2020,
       description =
@@ -85,7 +86,7 @@ val references =
     Reference(
       "Futurista",
       CustomSoftware,
-      Some(URL("https://futurista.hr/")),
+      Some(URI.create("https://futurista.hr/").toURL()),
       yearMade = 2020,
       description =
         "Company website/blog made with Laravel. Design adapted from a Ghost blog template. Uses self made sponsorware blog laravel package."
@@ -93,7 +94,7 @@ val references =
     Reference(
       "Private transfers \"Karoca\"",
       CustomSoftware,
-      Some(URL("https://taxiotokmurter.com/")),
+      Some(URI.create("https://taxiotokmurter.com/").toURL()),
       yearMade = 2019,
       description =
         "Company website for booking private transfers made with Laravel."
@@ -101,7 +102,7 @@ val references =
     Reference(
       "Butcher shop \"Milina\"",
       WebStandard,
-      Some(URL("https://milina.hr/")),
+      Some(URI.create("https://milina.hr/").toURL()),
       yearMade = 2019,
       description =
         "Simple one-page company website for a butcher shop made with Laravel."
@@ -109,21 +110,21 @@ val references =
     Reference(
       "Go Visit",
       WebStandard,
-      Some(URL("https://govisit.hr/")),
+      Some(URI.create("https://govisit.hr/").toURL()),
       yearMade = 2018,
       description = "Company website for a software company made with Laravel."
     ),
     Reference(
       "Shipyard \"Ćiro\"",
       WebStandard,
-      Some(URL("https://brodogradiliste-ciro.hr/")),
+      Some(URI.create("https://brodogradiliste-ciro.hr/").toURL()),
       yearMade = 2018,
       description = "Company website for shipyard Ćiro made with Grav CMS."
     ),
     Reference(
       "Damex",
       WebStandard,
-      Some(URL("https://damex.hr/")),
+      Some(URI.create("https://damex.hr/").toURL()),
       yearMade = 2018,
       description =
         "Simple company website for a bookkeeping business made with HTML, CSS and PHP."
@@ -131,7 +132,7 @@ val references =
     Reference(
       "Dragan Bašić",
       WebStandard,
-      Some(URL("https://draganbasic.com/")),
+      Some(URI.create("https://draganbasic.com/").toURL()),
       yearMade = 2018,
       description =
         "Personal website/portfolio for house construction made with Grav CMS."
@@ -139,7 +140,7 @@ val references =
     Reference(
       "VisitMurter",
       DirectoryListing,
-      Some(URL("https://visitmurter.hr")),
+      Some(URI.create("https://visitmurter.hr").toURL()),
       featured = true,
       yearMade = 2017,
       description =
@@ -148,21 +149,21 @@ val references =
     Reference(
       "Car service \"Antušina\"",
       WebStandard,
-      Some(URL("https://antusina.hr/")),
+      Some(URI.create("https://antusina.hr/").toURL()),
       yearMade = 2017,
       description = "Car service company website made with Laravel."
     ),
     Reference(
       "Apartments \"Milina\"",
       WebStandard,
-      Some(URL("https://apartmanimilina.com/")),
+      Some(URI.create("https://apartmanimilina.com/").toURL()),
       yearMade = 2017,
       description = "Apartment booking website made with Laravel."
     ),
     Reference(
       "Adriatica Consult",
       WebStandard,
-      Some(URL("http://adriaticaconsult.com/")),
+      Some(URI.create("http://adriaticaconsult.com/").toURL()),
       yearMade = 2016,
       description =
         "Business consulting company one-page website made with Laravel."
@@ -170,42 +171,42 @@ val references =
     Reference(
       "Studio \"Renata\"",
       WebStandard,
-      Some(URL("http://studio-renata.hr/")),
+      Some(URI.create("http://studio-renata.hr/").toURL()),
       yearMade = 2016,
       description = "Hair salon company one-page website made with Laravel."
     ),
     Reference(
       "Real estate agency \"Treva\"",
       CustomSoftware,
-      Some(URL("https://nekretnine-treva.com/")),
+      Some(URI.create("https://nekretnine-treva.com/").toURL()),
       yearMade = 2016,
       description = "Real estate agency website made with Laravel."
     ),
     Reference(
       "Apartments \"Kornat\"",
       CustomSoftware,
-      Some(URL("https://apartmani-kornat.com/")),
+      Some(URI.create("https://apartmani-kornat.com/").toURL()),
       yearMade = 2015,
       description = "Apartment booking website made with Laravel."
     ),
     Reference(
       "Apartments \"Slanica\"",
       CustomSoftware,
-      Some(URL("https://murter-apartments.com/")),
+      Some(URI.create("https://murter-apartments.com/").toURL()),
       yearMade = 2015,
       description = "Apartment booking website made with Laravel."
     ),
     Reference(
       "Villa \"Moj San\"",
       CustomSoftware,
-      Some(URL("http://apartmani-zablace.com/")),
+      Some(URI.create("http://apartmani-zablace.com/").toURL()),
       yearMade = 2015,
       description = "Apartment booking website made with OctoberCMS."
     ),
     Reference(
       "G.I.M. Gase",
       BusinessApp,
-      Some(URL("https://gimgase.hr")),
+      Some(URI.create("https://gimgase.hr").toURL()),
       featured = true,
       yearMade = 2015,
       description =
@@ -214,7 +215,7 @@ val references =
     Reference(
       "Dance studio \"Plesni Koraci\"",
       WebStandard,
-      Some(URL("https://plesnikoraci.com/")),
+      Some(URI.create("https://plesnikoraci.com/").toURL()),
       yearMade = 2014,
       description =
         "Company website for dance lessons and dance shows made with Laravel."
@@ -222,7 +223,7 @@ val references =
     Reference(
       "Hotel \"Murter\"",
       CustomSoftware,
-      Some(URL("https://hotelmurter.com/")),
+      Some(URI.create("https://hotelmurter.com/").toURL()),
       yearMade = 2014,
       description =
         "Company website for a hotel in Murter made with Laravel. Integrated external service Rentlio for room bookings."
@@ -230,7 +231,7 @@ val references =
     Reference(
       "Real estate agency \"Adriatica\"",
       CustomSoftware,
-      Some(URL("https://adriatica-nekretnine.hr/")),
+      Some(URI.create("https://adriatica-nekretnine.hr/").toURL()),
       yearMade = 2014,
       description =
         "Real estate agency website made with Laravel. Integrated external service Crozilla for property marketing."
@@ -238,7 +239,7 @@ val references =
     Reference(
       "Tourist agency \"Murterin\"",
       CustomSoftware,
-      Some(URL("https://murterin.com/")),
+      Some(URI.create("https://murterin.com/").toURL()),
       yearMade = 2013,
       description =
         "Company website for a tourist agency made with Laravel. Consists of two Laravel applications: one API/CMS and one Website."
@@ -246,7 +247,7 @@ val references =
     Reference(
       "Real estate agency \"Duos\"",
       CustomSoftware,
-      Some(URL("https://duos-croatia.com/")),
+      Some(URI.create("https://duos-croatia.com/").toURL()),
       yearMade = 2013,
       description =
         "Real estate agency website made with Laravel. Integrated external service iRealOne for property management."
@@ -254,7 +255,7 @@ val references =
     Reference(
       "Online store \"Daba\"",
       WebShop,
-      Some(URL("https://daba.hr/")),
+      Some(URI.create("https://daba.hr/").toURL()),
       yearMade = 2013,
       description =
         "Webshop for a woodworking company in Murter made with Laravel."
@@ -262,7 +263,7 @@ val references =
     Reference(
       "Virmanix",
       BusinessApp,
-      Some(URL("https://virmanix.damex.hr/")),
+      Some(URI.create("https://virmanix.damex.hr/").toURL()),
       yearMade = 2013,
       description =
         "Business web application for printing virmans for a bookkeeping company made with Laravel."
@@ -270,14 +271,14 @@ val references =
     Reference(
       "Villa \"Renata\"",
       WebStandard,
-      Some(URL("https://firstclassmurter.com/")),
+      Some(URI.create("https://firstclassmurter.com/").toURL()),
       yearMade = 2012,
       description = "Apartment renting website made with Joomla."
     ),
     Reference(
       "Attorney \"Vjeran Paić\"",
       WebStandard,
-      Some(URL("https://odvjetnik-vjeran-paic.com/")),
+      Some(URI.create("https://odvjetnik-vjeran-paic.com/").toURL()),
       yearMade = 2011,
       description = "Attorney at law website made with Joomla."
     )
