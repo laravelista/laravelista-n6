@@ -97,7 +97,7 @@ def themeSwitchButton =
   button(
     `type` := "button",
     id := "theme-switch",
-    cls := "p-2 rounded-full flex focus-visible:outline-none",
+    cls := "p-2 rounded-full flex focus-visible:outline-hidden",
     aria.label := "Switch theme",
     svg(
       id := "theme-dark",
