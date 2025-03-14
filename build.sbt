@@ -1,11 +1,11 @@
 ThisBuild / version := "0.5.0-SNAPSHOT"
-ThisBuild / scalaVersion := "3.4.2"
+ThisBuild / scalaVersion := "3.6.4"
 ThisBuild / organization := "com.laravelista"
 
 ThisBuild / scalacOptions ++= Seq("-deprecation")
 
-val http4sVersion = "0.23.27"
-val awsSdkVersion = "2.18.22"
+val http4sVersion = "0.23.30"
+val awsSdkVersion = "2.30.38"
 
 lazy val root = (project in file("."))
   .settings(
@@ -29,7 +29,7 @@ lazy val root = (project in file("."))
     libraryDependencies += "com.amazonaws" % "aws-java-sdk-sesv2" % "1.12.346",
     libraryDependencies += "software.amazon.awssdk" % "bom" % awsSdkVersion,
     libraryDependencies += "software.amazon.awssdk" % "sesv2" % awsSdkVersion,
-    libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.18"
+    libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.19"
   )
   .enablePlugins(UniversalPlugin)
   .enablePlugins(JavaAppPackaging)
@@ -39,8 +39,8 @@ lazy val js = (project in file("js"))
   .settings(
     name := "Website JS",
     scalaJSUseMainModuleInitializer := true,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.3.0",
-    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.13" % "test",
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.8.0",
+    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.19" % "test",
     jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
     Compile / fastLinkJS / scalaJSLinkerOutputDirectory := baseDirectory.value / "../src/main/resources/js",
     Compile / fullLinkJS / scalaJSLinkerOutputDirectory := baseDirectory.value / "../src/main/resources/js"

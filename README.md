@@ -14,7 +14,7 @@ The entire website is made with Scala and Tailwind CSS, even the JavaScript code
 ## Quickstart
 
 ```bash
-npm install
+pnpm install
 
 # to compile and run once
 sbtn run
@@ -85,10 +85,10 @@ sbt js/fullLinkJS
 
 ```bash
 # watch
-npm run watch
+pnpm run watch
 
 # production
-npm run prod
+pnpm run prod
 ```
 
 
